@@ -36,7 +36,9 @@ while(True):
         tradotta=t.handleTranslate(i2.lower())
         print(f'Traduzione: {tradotta}')
     if int(txtIn) == 3:
-        pass
+        parola = input("inserire parola con un ? :")
+        t.handleWildCard(parola)
+
     if int(txtIn) == 4:
         t.stampa()
     if int(txtIn) == 5:

@@ -27,8 +27,7 @@ class Translator:
         return i
 
     def handleWildCard(self,query):
-        # query is a string with a ? --> <par?la_aliena>
-        pass
+        self.d.translateWordWildCard(query)
 
     def stampa(self):
         self.d.stampadict()

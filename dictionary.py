@@ -1,3 +1,5 @@
+import re
+
 class Parole:
     def __init__(self,al,it):
         self.alieno=al
@@ -33,8 +35,19 @@ class Dictionary:
             self.addWord(i.split(" ")[0],i.split(" ")[1].strip("\n"))
 
 
-    def translateWordWildCard(self):
-        pass
+    def translateWordWildCard(self,parola):
+        risultati = []
+        for p in self.dizionario:
+            if len(parola) != len(p.alieno):
+                continue
+
+            match = all(x == y or x == '?' for x, y in zip(parola, p.alieno))
+
+            if match:
+                risultati.append(p)
+
+        for i in risultati:
+            print(f'parola aliena: {i.alieno}, traduzione/i: {i.parole_alternative}')
 
     def stampadict(self):
         for i in self.dizionario:
